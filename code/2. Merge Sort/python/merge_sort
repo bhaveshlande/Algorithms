@@ -1,0 +1,52 @@
+def merge_sort(arr):
+    """
+    This function performs Merge Sort on a list.
+    
+    :param arr: The input list to be sorted.
+    :return: A sorted version of the input list.
+    """
+    if len(arr) <= 1:
+        return arr  # Base case: If the list is empty or has only one element, it's already sorted.
+
+    # Split the list into two halves.
+    middle = len(arr) // 2
+    left_half = arr[:middle]
+    right_half = arr[middle:]
+
+    # Recursively sort both halves.
+    left_half = merge_sort(left_half)
+    right_half = merge_sort(right_half)
+
+    # Merge the sorted halves into a single sorted list.
+    return merge(left_half, right_half)
+
+def merge(left, right):
+    """
+    This function merges two sorted lists into one.
+    
+    :param left: The left sorted list.
+    :param right: The right sorted list.
+    :return: A merged and sorted list.
+    """
+    result = []
+    left_idx, right_idx = 0, 0
+
+    while left_idx < len(left) and right_idx < len(right):
+        if left[left_idx] < right[right_idx]:
+            result.append(left[left_idx])
+            left_idx += 1
+        else:
+            result.append(right[right_idx])
+            right_idx += 1
+
+    result.extend(left[left_idx:])
+    result.extend(right[right_idx:])
+
+    return result
+
+# Example usage:
+if __name__ == "__main__":
+    unsorted_list = [38, 27, 43, 3, 9, 82, 10]
+    sorted_list = merge_sort(unsorted_list)
+    print("Original list:", unsorted_list)
+    print("Sorted list:", sorted_list)

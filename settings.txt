@@ -1,0 +1,28 @@
+cd "C:\Users\bbaliram\Dev\Projects\Virtual env"
+myenv\Scripts\activate
+$env:PATH = "C:\Users\bbaliram\AppData\Local\Programs\Python\Python311;" + $env:PATH
+$env:PATH = "C:\Users\bbaliram\AppData\Local\Programs\Python\Python311\Scripts;" + $env:PATH
+clear
+
+set running file directory
+cd path
+
+
+
+OPEN_AI_KEY = "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"
+
+OPEN_AI_KEYopenai.api_key_="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"
+
+
+echo "# Algorithms" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/bhaveshlande/Algorithms.git
+git push -u origin main
+
+git add .
+git commit -m "first commit"
+git branch -M main
+git push -u origin main
